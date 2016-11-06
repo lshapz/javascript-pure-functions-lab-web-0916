@@ -10,4 +10,34 @@ const episodes = [
   { id: 's06e09', title: 'Battle of the Bastards' },
 ];
 
+var playlist = []
+
+function addToPlaylist(playlist, episode){
+  var copy = playlist.slice()
+
+  return [...copy, episode]
+}
+
+
+function removeFromPlaylist(playlist, episode){
+  var copy = playlist.slice()
+  copy.splice(copy.indexOf(episode), 1)
+  return copy
+}
+
+function getNextEpisodeInPlaylist(playlist){
+  return playlist[0]
+}
+
+function bingeWatch(playlist){
+  var copy = playlist.slice()
+  if (copy.length === 0) {
+    return 'Please let there be more!'
+  }else 
+   { return bingeWatch(copy.slice(1, copy.length)) }
+}
+
+
+
+
 const finaleEpisode = { id: 's06e10', title: 'The Winds of Winter' };
